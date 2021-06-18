@@ -1,4 +1,4 @@
-# vuetify-contact-card
+initial version Todo list app using Vuetify library
 
 ## Project setup
 ```
