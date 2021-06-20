@@ -29,6 +29,7 @@
       </v-list-item>
     </v-list>
   </v-menu>
+  <dialog-edit v-if="dialogs.edit" @close='dialogs.edit = false' :task="task" />
   <dialog-delete v-if="dialogs.delete" @close='dialogs.delete = false' :task="task" />
 </div>
 
@@ -39,6 +40,7 @@ export default {
   props: ['task'],
   data: () => ({
       dialogs: {
+        edit:false,
         delete: false
       },
       items: [
@@ -46,11 +48,11 @@ export default {
           title: 'Edit',
           icon: 'mdi-pencil', 
           click() {
-            this.dialogs.delete = true
+            this.dialogs.edit = true
           }
         },
         { 
-          title: 'due dates',
+          title: 'Due date',
           icon: 'mdi-calendar',
           click() {
             
@@ -71,6 +73,7 @@ export default {
       }
     },
     components: {
+      'dialog-edit': require('@/components/Todo/Dialogs/DialogEdit.vue').default,
       'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default,
       }
 }
