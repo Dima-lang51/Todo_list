@@ -1,18 +1,21 @@
 <template>
   <v-app id="inspire">
-        <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Vuetify Todo
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Best Todo Ever!
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
+        <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768" app>
+          <v-img
+            class="pa-4 pt-7"
+            src="spain.jpg"
+            height="170"
+            gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          >
+            <v-avatar size="70" class="mb-2">
+              <img
+                src="https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277416__480.jpg"
+                alt="Dog"
+              >
+            </v-avatar>
+            <div class="white--text text-subtitle-1 font-weight-bold">Dog Dog</div>
+            <div class="white--text text-subtitle-2">dog__dog</div>
+          </v-img>
 
       <v-list
         dense
@@ -48,10 +51,11 @@
         <v-img
           v-bind="props"
           gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
-        ></v-img>
+        >
+        </v-img>
       </template>
 
-      <v-container class="pa-2">
+      <v-container class="header-container pa-2">
         <v-row>
            <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
            <v-spacer></v-spacer>
@@ -96,4 +100,8 @@ export default {
  .v-app-bar-title__content {
    min-width: 150px;
  }
-</style>>
+
+ .header-container {
+   max-width: none !important;
+ }
+</style>
