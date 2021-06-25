@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { th } from 'date-fns/locale'
 
 
 export default {
