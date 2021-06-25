@@ -62,7 +62,7 @@
            <search />
         </v-row>
         <v-row>
-          <v-toolbar-title class="text-h4 ml-4">Vuetify Todo</v-toolbar-title>
+          <v-toolbar-title class="text-h4 ml-4">{{ $store.state.appTitle }}</v-toolbar-title>
         </v-row>
         <v-row>
           <live-date-time />
@@ -87,6 +87,8 @@ export default {
           { title: 'About', icon: 'mdi-help-box', to: '/about'},
         ],
   }),
+  computed: {
+  },
   components: {
     'search' : require('@/components/Tools/Search.vue').default,
     'live-date-time' : require('@/components/Tools/LiveDateTime.vue').default,
