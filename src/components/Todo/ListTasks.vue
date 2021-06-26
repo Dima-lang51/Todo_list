@@ -5,11 +5,11 @@
     >
 
     <draggable  
-      :list="$store.getters.tasksFiltered"  
+      v-model="tasks"  
       handle=".handle"
     >
 
-      <task v-for="task in $store.getters.tasksFiltered" 
+      <task v-for="task in tasks" 
             :key="task.id" 
             :task="task"
     />
@@ -23,6 +23,16 @@
 import draggable from 'vuedraggable'
 
 export default {
+  computed: {
+    tasks: {
+      get() {
+        return this.$store.getters.tasksFiltered
+      },
+      set(value) {
+        this.$store.commit('setTasks', value)
+      }
+    }
+  },
   components: {
     'task': require('@/components/Todo/Task.vue').default,
     draggable
