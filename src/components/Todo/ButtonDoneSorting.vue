@@ -4,7 +4,7 @@
     class="button-done-sorting"
     color="primary"
   >
-    Don Sorting
+    Done Sorting
   </v-btn>
 </template>
 
