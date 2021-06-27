@@ -87,7 +87,8 @@ export default {
           { title: 'About', icon: 'mdi-help-box', to: '/about'},
         ],
   }),
-  computed: {
+  mounted() {
+    this.$store.dispatch('getTasks')
   },
   components: {
     'search' : require('@/components/Tools/Search.vue').default,
