@@ -1,6 +1,10 @@
 <template>
   <v-app id="inspire">
-        <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768" app>
+        <v-navigation-drawer 
+          v-model="drawer" 
+          :mobile-breakpoint="768" 
+          app
+        >
           <v-img
             class="pa-4 pt-7"
             src="spain.jpg"
@@ -13,8 +17,12 @@
                 alt="Dog"
               >
             </v-avatar>
-            <div class="white--text text-subtitle-1 font-weight-bold">Dog Dog</div>
-            <div class="white--text text-subtitle-2">dog__dog</div>
+            <div class="white--text text-subtitle-1 font-weight-bold">
+              Dog Dog
+            </div>
+            <div class="white--text text-subtitle-2">
+              dog__dog
+            </div>
           </v-img>
 
       <v-list
@@ -45,12 +53,12 @@
       dark
       src="spain.jpg"
       prominent
-      height="170"
+      :height="$route.path === '/' ? '238' : '170'"
     >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          gradient="to top right, rgba(19,84,122,.9), rgba(128,208,199,.8)"
         >
         </v-img>
       </template>
@@ -67,6 +75,9 @@
         <v-row>
           <live-date-time />
         </v-row>
+        <v-row v-if="$route.path === '/'">
+          <field-add-task />
+        </v-row>
       </v-container>
 
     </v-app-bar>
@@ -81,7 +92,8 @@
 <script>
 
 export default {
-  data: () => ({ drawer: null,
+  data: () => ({ 
+    drawer: null,
     items: [
           { title: 'Todo', icon: 'mdi-format-list-checks', to: '/'},
           { title: 'About', icon: 'mdi-help-box', to: '/about'},
@@ -93,6 +105,7 @@ export default {
   components: {
     'search' : require('@/components/Tools/Search.vue').default,
     'live-date-time' : require('@/components/Tools/LiveDateTime.vue').default,
+    'field-add-task' : require('@/components/Todo/FieldAddTask.vue').default,
     'snackbar' : require('@/components/Global/Snackbar.vue').default
     
   }
