@@ -53,10 +53,11 @@ export default {
           id: this.task.id,
           title: this.taskTitle
       }
-      this.$store.dispatch('updateTaskTitle', payload)
-      this.$emit('close')
-    }
+        this.$store.dispatch('updateTaskTitle', payload)
+        this.$emit('close')
+        this.$vuetify.goTo(0, { duration: 0 })
       }
+    }
   },
   mounted() {
     this.taskTitle = this.task.title
